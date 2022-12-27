@@ -1,0 +1,51 @@
+﻿@using CrudClientApplication.Models;
+@model GetAllCustResponse
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="pb-4">
+        <div class="col-md-12">
+            <h4 class="text-center text-primary">Customer Record</h4>@*
+            <a class="btn btn-sm btn-success" href="/Customer/create-cust">Create</a>*@
+            <a class="btn btn-outline-success" asp-controller="Customer" asp-action="Create-customer">Create New</a>
+
+            <table class="table table-bordered">
+                <tr class="text-center" style="background-color:darkcyan">
+                    <th>CustomerID</th>
+                    <th>CustomerName</th>
+                    <th>Address</th>    
+                    <th>City</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th style="width:300px">Action</th>
+                </tr>
+
+                @if(Model != null)
+                {
+                    @foreach(var data in Model.CustomerList)
+                    {
+                        <tr class="text-center">
+                            <td>@data.CustomerID</td>
+                            <td>@data.CustomerName</td>
+                            <td>@data.Address</td>
+                            <td>@data.City</td>
+                            <td>@data.Email</td>
+                            <td>@data.Gender</td>
+                            <td class="align-right">
+                                <a class="btn btn-outline-success" asp-controller="Customer" asp-action="Update-customer" asp-route-id="@data.CustomerID">Edit</a>
+                                <a class="btn btn-outline-danger" href="/customer/delete-customer?id=@data.CustomerID">Delete</a>
+                                <a class="btn btn-outline-info" asp-controller="Customer" asp-action="Get-joinlist">OrderDetails</a>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+

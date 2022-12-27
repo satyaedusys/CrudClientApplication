@@ -1,0 +1,78 @@
+﻿@model CrudClientApplication.Models.CustomerModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-success">Add Customer</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-controller="Customer" asp-action="Create-customer">
+
+                        <div class="form-group">
+                            <label asp-for="CustomerName"></label>
+                            <input type="text" asp-for="CustomerName" placeholder="Enter CustomerName" class="form-control"/>
+                            <span asp-validation-for="CustomerName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Address"></label>
+                            <input type="text" asp-for="Address" placeholder="Enter Adress" class="form-control"/>
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="City"></label>
+                            <input type="text" asp-for="City" placeholder="Enter City" class="form-control"/>
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input type="text" asp-for="Email" placeholder="Enter Email" class="form-control"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                           <div class="form-group">
+                            <label asp-for="OrderNumber"></label>
+                            <input type="text" asp-for="OrderNumber" placeholder="Enter OrderNumber " class="form-control" />
+                            <span asp-validation-for="OrderNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="OrderDetials"></label>
+                            <input type="text" asp-for="OrderDetials" placeholder="Enter OrderDetials" class="form-control"/>
+                            <span asp-validation-for="OrderDetials" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+
+                            <label asp-for="Gender" class="control-label"> </label>
+                            <input type="radio" name="gender" value="M" />Male
+                            <input type="radio" name="gender" value="F" />Female
+                            <input type="radio" name="gender" value="U" />Unspecified
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="submit" class="btn btn-outline-primary float-right" />
+                        </div>
+
+                        <div>
+                            <a type="button" class="btn btn-outline-success" asp-action="Index">Back to CustomerList</a>
+                        </div>
+                    </form>
+
+                </div>
+
+                <b>@ViewBag.message</b>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
